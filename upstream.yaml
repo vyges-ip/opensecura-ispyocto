@@ -1,0 +1,23 @@
+schema_version: "vyges-upstream-v1"
+upstream:
+  type: "standalone"
+  repo: https://opensecura.googlesource.com/3p/ip/isp
+  branch: master
+  commit: d53dc0e0ce2605cea2e3b3fc5b97e9dd40f8d55a
+  extracted_at: "2026-11-13T04:57:41Z"
+import:
+  rtl:
+    - path: "ispyocto"
+      map_to: "ispyocto"
+    - path: "axi2sramcrs"
+      map_to: "axi2sramcrs"
+    - path: "docs"
+      map_to: "docs"
+  license:
+    - path: "LICENSE"
+  readme:
+    - path: "README.md"
+license:
+  spdx: Apache-2.0
+  file: LICENSE
+metadata_locked: true
