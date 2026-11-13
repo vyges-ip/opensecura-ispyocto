@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "description": "ISPYocto: an image signal processor from the VeriSilicon ISP8000 family, customized for Open Se Cura and released under Apache-2.0. Takes a parallel Bayer sensor stream (8/10/12-bit; hsync/vsync/valid) and runs black-level subtraction, auto exposure, digital gain, demosaic and filtering, chromatic aberration correction, gamma, auto white balance, colour correction and crosstalk; a memory interface writes main and self-resized frames over two AXI write masters. Registers on an AHB slave. Includes the axi2sramcrs bridge. Used by the CoralNPU FPGA reference camera path. Mirror of https://opensecura.googlesource.com/3p/ip/isp; Vivante Corporation and Silicon Image GmbH copyright notices retained.",
   "license": "Apache-2.0",
-  "maturity": "draft",
+  "maturity": "prototype",
   "target": [
     "asic",
     "fpga"
