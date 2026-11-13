@@ -1,0 +1,46 @@
+CAPI=2:
+# Copyright 2023 Google LLC
+# Copyright 2023 Vivante Corporation
+# Copyright lowRISC contributors.
+# Licensed under the Apache License, Version 2.0, see LICENSE for details.
+# SPDX-License-Identifier: Apache-2.0
+
+name: "vsi:axi2sramcrs:includes:0.1"
+description: "axi2sramcrs includes"
+filesets:
+  files_rtl:
+    files:
+      - rtl/share/Axi_undefs.v  :  {is_include_file : true}
+      - rtl/share/Axi.v  :  {is_include_file : true}
+      - rtl/share/axi_slice/defs_axi_slice.v  :  {is_include_file : true}
+      - rtl/share/axi_slice/undefs_axi_slice.v  :  {is_include_file : true}
+    file_type: systemVerilogSource
+
+  files_verilator_waiver:
+    depend:
+      # common waivers
+      - lowrisc:lint:common
+    files:
+      - lint/axi2sramcrs.vlt
+    file_type: vlt
+
+  files_ascentlint_waiver:
+    depend:
+      # common waivers
+      - lowrisc:lint:common
+    files:
+      - lint/axi2sramcrs.waiver
+    file_type: waiver
+
+  files_veriblelint_waiver:
+    depend:
+      # common waivers
+      - lowrisc:lint:common
+
+targets:
+  default:
+    filesets:
+      - tool_verilator   ? (files_verilator_waiver)
+      - tool_ascentlint  ? (files_ascentlint_waiver)
+      - tool_veriblelint ? (files_veriblelint_waiver)
+      - files_rtl

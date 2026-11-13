@@ -1,0 +1,83 @@
+CAPI=2:
+# Copyright 2023 Google LLC
+# Copyright 2023 Vivante Corporation
+# Copyright lowRISC contributors.
+# Licensed under the Apache License, Version 2.0, see LICENSE for details.
+# SPDX-License-Identifier: Apache-2.0
+name: "vsi:ip:axi2sramcrs:0.1"
+description: "axi2sramcrs"
+filesets:
+  files_rtl:
+    depend:
+      - vsi:axi2sramcrs:includes
+    files:
+      - rtl/axi2sramcrs.v
+      - rtl/axilite2sram.v
+      - rtl/axi2axilite/axi2axilite.v
+      - rtl/upsizer/axi_upsizer.v
+      - rtl/upsizer/upsize_rd_addr_fmt.v
+      - rtl/upsizer/upsize_rd_cam_slice.v
+      - rtl/upsizer/upsize_rd_chan.v
+      - rtl/upsizer/upsize_resp_cam_slice.v
+      - rtl/upsizer/upsize_wr_addr_fmt.v
+      - rtl/upsizer/upsize_wr_cntrl.v
+      - rtl/upsizer/upsize_wr_merge_buffer.v
+      - rtl/upsizer/upsize_wr_resp_block.v
+      - rtl/upsizer/maskcntl.v
+      - rtl/upsizer/upsize_master_domain.v
+      - rtl/upsizer/upsize_slave_domain.v
+      - rtl/share/axi_slice/axi_slice.v
+      - rtl/share/axi_slice/axi_ful_regd_slice.v
+      - rtl/share/axi_slice/axi_fwd_regd_slice.v
+      - rtl/share/axi_slice/axi_rev_regd_slice.v
+    file_type: systemVerilogSource
+
+  files_verilator_waiver:
+    depend:
+      # common waivers
+      - lowrisc:lint:common
+      - lowrisc:lint:comportable
+    files:
+      - lint/axi2sramcrs.vlt
+    file_type: vlt
+
+  files_ascentlint_waiver:
+    depend:
+      # common waivers
+      - lowrisc:lint:common
+      - lowrisc:lint:comportable
+    files:
+      - lint/axi2sramcrs.waiver
+    file_type: waiver
+
+  files_veriblelint_waiver:
+    depend:
+      # common waivers
+      - lowrisc:lint:common
+      - lowrisc:lint:comportable
+
+parameters:
+  SYNTHESIS:
+    datatype: bool
+    paramtype: vlogdefine
+
+
+targets:
+  default: &default_target
+    filesets:
+      - tool_verilator   ? (files_verilator_waiver)
+      - tool_ascentlint  ? (files_ascentlint_waiver)
+      - tool_veriblelint ? (files_veriblelint_waiver)
+      - files_rtl
+    toplevel: axi2sramcrs
+
+  lint:
+    <<: *default_target
+    default_tool: verilator
+    parameters:
+      - SYNTHESIS=true
+    tools:
+      verilator:
+        mode: lint-only
+        verilator_options:
+          - "-Wall"

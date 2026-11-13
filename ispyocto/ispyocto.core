@@ -1,0 +1,202 @@
+CAPI=2:
+# Copyright 2023 Google LLC
+# Copyright 2023 Vivante Corporation
+# Copyright lowRISC contributors.
+# Licensed under the Apache License, Version 2.0, see LICENSE for details.
+# SPDX-License-Identifier: Apache-2.0
+name: "vsi:ip:ispyocto:0.1"
+description: "ispyocto"
+filesets:
+  files_rtl:
+    depend:
+      - vsi:ispyocto:includes
+    files:
+      - rtl/ispyocto/vsisp_add_h_end.v
+      - rtl/ispyocto/vsisp_ahb2pvci.v
+      - rtl/ispyocto/vsisp_AQSync.v
+      - rtl/ispyocto/vsisp_bvci2axi_wr.v
+      - rtl/ispyocto/vsisp_CLOCKGATER.v
+      - rtl/ispyocto/vsisp_conv_422to444.v
+      - rtl/ispyocto/vsisp_conv_dpsbe.v
+      - rtl/ispyocto/vsisp_conv_dpsfe.v
+      - rtl/ispyocto/vsisp_conv_dpsfifo.v
+      - rtl/ispyocto/vsisp_conv_gen_streaming_interface.v
+      - rtl/ispyocto/vsisp_conv.v
+      - rtl/ispyocto/vsisp_conv_yuv2rgb.v
+      - rtl/ispyocto/vsisp_dreg_en_1d.v
+      - rtl/ispyocto/vsisp_dreg_en_2d.v
+      - rtl/ispyocto/vsisp_fifo4fe.v
+      - rtl/ispyocto/vsisp_fifo.v
+      - rtl/ispyocto/vsisp_GC_CG_MOD.v
+      - rtl/ispyocto/vsisp_gc_den_reg.v
+      - rtl/ispyocto/vsisp_gc_dr_reg.v
+      - rtl/ispyocto/vsisp_isp_422_conv.v
+      - rtl/ispyocto/vsisp_isp_awb_acc.v
+      - rtl/ispyocto/vsisp_isp_awb_div.v
+      - rtl/ispyocto/vsisp_isp_awb_meas.v
+      - rtl/ispyocto/vsisp_isp_awb_th.v
+      - rtl/ispyocto/vsisp_isp_awb_wnd.v
+      - rtl/ispyocto/vsisp_isp_bls_regs.v
+      - rtl/ispyocto/vsisp_isp_bls_subtr.v
+      - rtl/ispyocto/vsisp_isp_bls_v2.v
+      - rtl/ispyocto/vsisp_isp_cac_ctrl.v
+      - rtl/ispyocto/vsisp_isp_cac_delay.v
+      - rtl/ispyocto/vsisp_isp_cac_hor_buf.v
+      - rtl/ispyocto/vsisp_isp_cac_hor.v
+      - rtl/ispyocto/vsisp_isp_cac_ver.v
+      - rtl/ispyocto/vsisp_isp_cross_talk.v
+      - rtl/ispyocto/vsisp_isp_crt_tri_mul_add.v
+      - rtl/ispyocto/vsisp_isp_csm_fix.v
+      - rtl/ispyocto/vsisp_isp_csm_tri_mul_add.v
+      - rtl/ispyocto/vsisp_isp_csm.v
+      - rtl/ispyocto/vsisp_isp_demosaic_3x2.v
+      - rtl/ispyocto/vsisp_isp_demosaic_3x3_crcb.v
+      - rtl/ispyocto/vsisp_isp_demosaic5x.v
+      - rtl/ispyocto/vsisp_isp_demosaic_buf_5lines.v
+      - rtl/ispyocto/vsisp_isp_demosaic_dpsbe.v
+      - rtl/ispyocto/vsisp_isp_digi_gain.v
+      - rtl/ispyocto/vsisp_isp_dpsfe.v
+      - rtl/ispyocto/vsisp_isp_exp_ctrl.v
+      - rtl/ispyocto/vsisp_isp_exp_regs.v
+      - rtl/ispyocto/vsisp_isp_exp.v
+      - rtl/ispyocto/vsisp_isp_filt_chr_buf.v
+      - rtl/ispyocto/vsisp_isp_filt_chr_core.v
+      - rtl/ispyocto/vsisp_isp_filt_ctrl.v
+      - rtl/ispyocto/vsisp_isp_filt_hp_core.v
+      - rtl/ispyocto/vsisp_isp_filt_lp_core.v
+      - rtl/ispyocto/vsisp_isp_filt_out_mux.v
+      - rtl/ispyocto/vsisp_isp_filt_regs.v
+      - rtl/ispyocto/vsisp_isp_filt_txtdet.v
+      - rtl/ispyocto/vsisp_isp_filt.v
+      - rtl/ispyocto/vsisp_isp_gamma_channel_fix.v
+      - rtl/ispyocto/vsisp_isp_gamma_out.v
+      - rtl/ispyocto/vsisp_isp_inform.v
+      - rtl/ispyocto/vsisp_isp_irq_handler.v
+      - rtl/ispyocto/vsisp_isp_isp_fifo_wrapper.v
+      - rtl/ispyocto/vsisp_isp_isp_ram_wrapper.v
+      - rtl/ispyocto/vsisp_isp_line_mem_if.v
+      - rtl/ispyocto/vsisp_isp_miv1_mp_sramy_wrapper.v
+      - rtl/ispyocto/vsisp_isp_outform.v
+      - rtl/ispyocto/vsisp_isp_pseudo_random_gen.v
+      - rtl/ispyocto/vsisp_isp_regs.v
+      - rtl/ispyocto/vsisp_isp_rgb_yuv_sel.v
+      - rtl/ispyocto/vsisp_isp_srsz_c_wrapper.v
+      - rtl/ispyocto/vsisp_isp_srsz_y_wrapper.v
+      - rtl/ispyocto/vsisp_isp_tpg_cfg.v
+      - rtl/ispyocto/vsisp_isp.v
+      - rtl/ispyocto/vsisp_m4_clock_gating.v
+      - rtl/ispyocto/vsisp_marvin_ctrl_pvcidis.v
+      - rtl/ispyocto/vsisp_marvin_ctrl_pvci.v
+      - rtl/ispyocto/vsisp_marvin_ctrl_reset_gen.v
+      - rtl/ispyocto/vsisp_marvin_ctrl.v
+      - rtl/ispyocto/vsisp_marvin_dpsfe.v
+      - rtl/ispyocto/vsisp_marvin_dpsfifo.v
+      - rtl/ispyocto/vsisp_marvin_irq_handler.v
+      - rtl/ispyocto/vsisp_marvin_mi_2to3.v
+      - rtl/ispyocto/vsisp_marvin_mi_bp.v
+      - rtl/ispyocto/vsisp_marvin_mi_dpsbe.v
+      - rtl/ispyocto/vsisp_marvin_mi_fifo_bp.v
+      - rtl/ispyocto/vsisp_marvin_mi_fifo.v
+      - rtl/ispyocto/vsisp_marvin_mi_handshake.v
+      - rtl/ispyocto/vsisp_marvin_mi_in_distrib.v
+      - rtl/ispyocto/vsisp_marvin_mi_in.v
+      - rtl/ispyocto/vsisp_marvin_mi_out_addrgen_mp.v
+      - rtl/ispyocto/vsisp_marvin_mi_out_addrgen_sp.v
+      - rtl/ispyocto/vsisp_marvin_mi_out_arbit_mp.v
+      - rtl/ispyocto/vsisp_marvin_mi_out_arbit_sp.v
+      - rtl/ispyocto/vsisp_marvin_mi_out_bp.v
+      - rtl/ispyocto/vsisp_marvin_mi_out_ctrl_mp.v
+      - rtl/ispyocto/vsisp_marvin_mi_out_ctrl_sp.v
+      - rtl/ispyocto/vsisp_marvin_mi_out_mp.v
+      - rtl/ispyocto/vsisp_marvin_mi_out_sp.v
+      - rtl/ispyocto/vsisp_marvin_mi_out_updlogic_mp.v
+      - rtl/ispyocto/vsisp_marvin_mi_out_updlogic_sp.v
+      - rtl/ispyocto/vsisp_marvin_mi_out.v
+      - rtl/ispyocto/vsisp_marvin_mi_regs.v
+      - rtl/ispyocto/vsisp_marvin_mi_swap.v
+      - rtl/ispyocto/vsisp_marvin_mi.v
+      - rtl/ispyocto/vsisp_marvin_pvci_reg_stage.v
+      - rtl/ispyocto/vsisp_marvin_top_a.v
+      - rtl/ispyocto/VSISP_MARVIN_TOP_X.v
+      - rtl/ispyocto/vsisp_mi_bayer_split.v
+      - rtl/ispyocto/vsisp_mi_dp_outstage.v
+      - rtl/ispyocto/vsisp_mi_dp_raw.v
+      - rtl/ispyocto/vsisp_mi_fifo_core.v
+      - rtl/ispyocto/vsisp_mi_fifo_ram.v
+      - rtl/ispyocto/vsisp_mi_jpeg_ctrl.v
+      - rtl/ispyocto/vsisp_pvci_mux.v
+      - rtl/ispyocto/vsisp_pvci_sync.v
+      - rtl/ispyocto/vsisp_resize_conv_ctrl.v
+      - rtl/ispyocto/vsisp_resize_conv.v
+      - rtl/ispyocto/vsisp_resize_to_conv_2to3.v
+      - rtl/ispyocto/vsisp_self_hor_c_scale.v
+      - rtl/ispyocto/vsisp_self_hor_mult.v
+      - rtl/ispyocto/vsisp_self_hor_scale.v
+      - rtl/ispyocto/vsisp_self_resize_c_scale.v
+      - rtl/ispyocto/vsisp_self_resize_scale.v
+      - rtl/ispyocto/vsisp_self_resize.v
+      - rtl/ispyocto/vsisp_self_rsz_dpsbe.v
+      - rtl/ispyocto/vsisp_self_vert_mult.v
+      - rtl/ispyocto/vsisp_self_vert_scale.v
+      - rtl/ispyocto/vsisp_sensor_fifo.v
+      - rtl/ispyocto/vsisp_sync_fifo_core.v
+      - rtl/ispyocto/vsisp_sync_fifo_outp.v
+      - rtl/ispyocto/vsisp_sync_fifo_reset_gen_rd.v
+      - rtl/ispyocto/vsisp_sync_fifo_reset_gen_wr.v
+      - rtl/ispyocto/vsisp_vs_marvin_ramshell.v
+      - rtl/ispyocto/vsisp_yc_split.v
+      - rtl/rams/vsisp_RAM1P128W28B_SS.v
+      - rtl/rams/vsisp_RAM1P320W168B_SS.v
+      - rtl/rams/vsisp_RAM1P320W32B_SS.v
+      - rtl/rams/vsisp_RAM1P80W66B_SS.v
+    file_type: systemVerilogSource
+
+  files_verilator_waiver:
+    depend:
+      # common waivers
+      - lowrisc:lint:common
+      - lowrisc:lint:comportable
+    files:
+      - lint/ispyocto.vlt
+    file_type: vlt
+
+  files_ascentlint_waiver:
+    depend:
+      # common waivers
+      - lowrisc:lint:common
+      - lowrisc:lint:comportable
+    files:
+      - lint/ispyocto.waiver
+    file_type: waiver
+
+  files_veriblelint_waiver:
+    depend:
+      # common waivers
+      - lowrisc:lint:common
+      - lowrisc:lint:comportable
+
+parameters:
+  SYNTHESIS:
+    datatype: bool
+    paramtype: vlogdefine
+
+
+targets:
+  default: &default_target
+    filesets:
+      - tool_verilator   ? (files_verilator_waiver)
+      - tool_ascentlint  ? (files_ascentlint_waiver)
+      - tool_veriblelint ? (files_veriblelint_waiver)
+      - files_rtl
+    toplevel: vsisp
+
+  lint:
+    <<: *default_target
+    default_tool: verilator
+    parameters:
+      - SYNTHESIS=true
+    tools:
+      verilator:
+        mode: lint-only
+        verilator_options:
+          - "-Wall"
